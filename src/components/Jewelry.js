@@ -1,25 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import Card from './Card'
 
-
-
-const HomePage = () => {
-    const [product, setProduct] = useState([])
-    const searchProducts = async()=>{
-        const data = await fetch("https://fakestoreapi.com/products")
-        const json = await data.json()
-        setProduct(json)
-        console.log(json);
+const Jewelry = () => {
+    const [data, setData] = useState([])
+    const electronicSearch = async()=>{
+        const data = await fetch(`https://fakestoreapi.com/products/category/jewelery`)
+        const json = await data?.json()
+        setData(json)
     }
     useEffect(()=>{
-        searchProducts()
+        electronicSearch()
     }, [])
-    
   return (
-    
     <div className="mt-[90px] ml-[300px] flex flex-wrap gap-5 overflow-y-hidden">
-        {
-            product.map((eachProduct)=>{
+        { 
+            data.map((eachProduct)=>{
                 const image = eachProduct?.image;
                 const title = eachProduct?.title;
                 const price = eachProduct?.price;
@@ -29,11 +24,11 @@ const HomePage = () => {
                 return(
                     <Card key={eachProduct.id} image={image} title={title} price={price} category={category} rating={rating}/>
                 )
-                  })
+            })
         }
 
     </div>
   )
 }
 
-export default HomePage
+export default Jewelry

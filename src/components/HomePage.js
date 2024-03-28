@@ -20,7 +20,7 @@ const HomePage = () => {
     
   return (
     
-    <div className="mt-[90px] ml-[300px] flex flex-wrap gap-5 overflow-y-hidden">
+    <div className="mt-[90px] ml-[14%] md:ml-[300px] flex flex-wrap gap-5 overflow-y-hidden">
         {
             products?.map((eachProduct)=>{
                 
@@ -32,7 +32,7 @@ const HomePage = () => {
 
                 return(
                      
-                    <Card id={eachProduct.id} image={image} title={title} price={price} category={category} rating={rating}/>
+                    <Card key={eachProduct.id} id={eachProduct.id} image={image} title={title} price={price} category={category} rating={rating}/>
                 )
                   })
         }

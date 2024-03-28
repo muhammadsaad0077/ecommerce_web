@@ -18,7 +18,7 @@ const Jewelry = () => {
      }
     }, [])
   return (
-    <div className="mt-[90px] ml-[300px] flex flex-wrap gap-5 overflow-y-hidden">
+    <div className="mt-[90px] md:ml-[300px] ml-[14%] flex flex-wrap gap-5 overflow-y-hidden">
         { 
             jewelery?.map((eachProduct)=>{
                 const image = eachProduct?.image;

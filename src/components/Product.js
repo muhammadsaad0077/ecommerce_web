@@ -27,7 +27,7 @@ const Product = () => {
   const { image, title, price, category } = product;
   
   return (
-    <div className="ml-[300px] mt-24">
+    <div className="md:ml-[300px] mt-24 ml-[14%]">
       <Card image={image} title={title} price={price} category={category} />
     </div>
   );

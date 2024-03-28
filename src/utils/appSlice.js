@@ -10,7 +10,8 @@ const appSlice = createSlice({
         jewelry: null,
         electronics: null,
         women: null,
-        product: null
+        product: null,
+        toggleButton: false
         
     },
     reducers: {
@@ -37,11 +38,14 @@ const appSlice = createSlice({
         },
         addProduct: (state, action) =>{
             state.product = action.payload
+        },
+        toggle: (state) => {
+            state.toggleButton = !state.toggleButton
         }
         
     }
 })
 
-export const {toggleCart, addItems, addCategory, addMen, addJewelry, addElectronics, addWomen, addProduct} = appSlice.actions
+export const {toggleCart, addItems, addCategory, addMen, addJewelry, addElectronics, addWomen, addProduct, toggle} = appSlice.actions
 
 export default appSlice.reducer

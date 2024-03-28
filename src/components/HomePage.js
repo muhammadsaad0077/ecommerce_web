@@ -1,25 +1,28 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Card from './Card'
-import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { addItems } from '../utils/appSlice'
 
 
 
 const HomePage = () => {
-    const [product, setProduct] = useState([])
+    const products = useSelector(store => store.app.items)
+    const dispatch = useDispatch()
     const searchProducts = async()=>{
         const data = await fetch("https://fakestoreapi.com/products")
         const json = await data.json()
-        setProduct(json)
+        dispatch(addItems(json))
     }
     useEffect(()=>{
+        if(!products){
         searchProducts()
-    }, [])
+}}, [])
     
   return (
     
     <div className="mt-[90px] ml-[300px] flex flex-wrap gap-5 overflow-y-hidden">
         {
-            product.map((eachProduct)=>{
+            products?.map((eachProduct)=>{
                 
                 const image = eachProduct?.image;
                 const title = eachProduct?.title;

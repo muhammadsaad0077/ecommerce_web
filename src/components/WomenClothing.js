@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import Card from './Card'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { addWomen } from '../utils/appSlice'
 
 const WomenClothing = () => {
-    const [data, setData] = useState([])
+    const WomenClothing = useSelector(store => store.app.women)
+    const dispatch = useDispatch()
     const electronicSearch = async()=>{
         const data = await fetch(`https://fakestoreapi.com/products/category/women's clothing`)
         const json = await data?.json()
-        setData(json)
+        dispatch(addWomen(json))
     }
     useEffect(()=>{
+        if(!WomenClothing){
         electronicSearch()
+    }
     }, [])
   return (
     <div className="mt-[90px] ml-[300px] flex flex-wrap gap-5 overflow-y-hidden">
         { 
-            data.map((eachProduct)=>{
+            WomenClothing?.map((eachProduct)=>{
                 const image = eachProduct?.image;
                 const title = eachProduct?.title;
                 const price = eachProduct?.price;

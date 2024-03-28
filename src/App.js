@@ -10,6 +10,8 @@ import Electronics from './components/Electronics';
 import Jewelry from './components/Jewelry';
 import MenClothing from './components/MenClothing';
 import WomenClothing from './components/WomenClothing';
+import Product from './components/Product';
+import CartPage from './components/Cart';
 
 function App() {
   return (
@@ -23,16 +25,10 @@ function App() {
        <Route path="/jewelery" element={<Jewelry />} />
        <Route path="/men's clothing" element={<MenClothing />} />
        <Route path="/women's clothing" element={<WomenClothing />} />
+       <Route path='/product/:id' element={<Product />}></Route>
+       <Route path="/cart" element={<CartPage />} />
       </Routes>
       <HomePage />
-      <Routes>
-        <Route path="/" element={<><Home />
-      <SideBar />
-      <HomePage />
-      
-      </>
-      }  />
-      </Routes>
     </div>
     </Router>
     </Provider>

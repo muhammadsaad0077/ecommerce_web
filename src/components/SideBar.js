@@ -20,7 +20,7 @@ const SideBar = () => {
        <Link to={"/"}><li className='ml-3 mt-10 p-4 text-white cursor-pointer hover:text-yellow-200 transition duration-300'>All</li></Link>
         {category.map((eachCategory) => (
             <Link to={"/"+eachCategory}>
-            <li key={eachCategory}  className="ml-3 mt-10 p-4 text-white cursor-pointer hover:text-yellow-200 transition duration-300">
+            <li key={eachCategory.id}  className="ml-3 mt-10 p-4 text-white cursor-pointer hover:text-yellow-200 transition duration-300">
                 {eachCategory.toUpperCase()}
             </li>
             </Link>

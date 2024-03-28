@@ -1,16 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const appSlice = createSlice({
-    name: "app",
+    name: 'app',
     initialState: {
-        isCardOpen: true,
+        cartshow: true,
+        
     },
     reducers: {
-        cardOpen: (state) => {
-            state.isCardOpen = true; // Corrected from state.isPageOpen to state.isCardOpen
-        }
+        toggleCart: (state) =>{
+            state.cartshow = !state.cartshow
+        },
+        
     }
-});
+})
 
-export default appSlice.reducer;
-export const { cardOpen } = appSlice.actions;
+export const {toggleCart} = appSlice.actions
+
+export default appSlice.reducer

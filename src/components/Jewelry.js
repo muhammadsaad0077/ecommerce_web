@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Card from './Card'
+import { Link } from 'react-router-dom'
 
 const Jewelry = () => {
     const [data, setData] = useState([])
@@ -22,7 +23,7 @@ const Jewelry = () => {
                 const rating = eachProduct?.rating?.rate;
 
                 return(
-                    <Card key={eachProduct.id} image={image} title={title} price={price} category={category} rating={rating}/>
+                    <Link key={eachProduct.id} to={`/product/${eachProduct.id}`}><Card key={eachProduct.id} image={image} title={title} price={price} category={category} rating={rating}/></Link>
                 )
             })
         }

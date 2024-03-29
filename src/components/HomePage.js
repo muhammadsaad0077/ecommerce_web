@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Card from './Card'
 import { useDispatch, useSelector } from 'react-redux'
 import { addItems } from '../utils/appSlice'
+import Shimmer from './Shimmer'
 
 
 
@@ -13,10 +14,14 @@ const HomePage = () => {
         const json = await data.json()
         dispatch(addItems(json))
     }
+    
     useEffect(()=>{
         if(!products){
         searchProducts()
 }}, [])
+if(!products){
+  return <Shimmer />
+}
     
   return (
     
@@ -29,10 +34,11 @@ const HomePage = () => {
                 const price = eachProduct?.price;
                 const category = eachProduct?.category;
                 const rating = eachProduct?.rating?.rate;
+                const id = eachProduct?.id
 
                 return(
                      
-                    <Card key={eachProduct.id} id={eachProduct.id} image={image} title={title} price={price} category={category} rating={rating}/>
+                    <Card key={eachProduct.id} id={id} image={image} title={title} price={price} category={category} rating={rating}/>
                 )
                   })
         }

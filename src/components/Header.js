@@ -6,6 +6,7 @@ import { toggle } from '../utils/appSlice';
 
 const Header = () => {
   const cartItemsCount = useSelector(state => state.cart.items.length);
+  const btn = useSelector(store => store.app.toggleButton)
   const dispatch = useDispatch();
 
   const handleClearCart = () => {
@@ -18,7 +19,7 @@ const Header = () => {
     
   return (
     <>
-          <Link to="/"><h1 className="text-[19px] md:ml-4 ml-9 md:text-2xl m-4 text-white md:fixed" onClick={handleClick}>DevStore</h1></Link>
+          <Link to="/"><h1 className="text-[19px] md:ml-4 ml-9 md:text-2xl m-4 text-white md:fixed" onClick={btn ? handleClick : null}>DevStore</h1></Link>
 
       <div className="text-xl flex justify-end m-3 justify-self-end ml-auto">
         <Link to={'/cart'}><h1 className="mr-5 md:mr-10 text-3xl md:text-4xl cart">🛒</h1></Link>

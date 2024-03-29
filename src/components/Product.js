@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Card from './Card';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProduct } from '../utils/appSlice';
+import Shimmer from './Shimmer';
 
 const Product = () => {
   const product = useSelector(store => store.app.product);
@@ -21,7 +22,7 @@ const Product = () => {
   }, [id, dispatch]);
 
   if (!product) {
-    return <div>Loading...</div>; // Or any loading indicator
+    return <Shimmer /> 
   }
 
   const { image, title, price, category } = product;

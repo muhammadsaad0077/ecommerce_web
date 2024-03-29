@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { addCategory, toggle } from '../utils/appSlice'
 import bars from '../Images/bars.png'
 import close from '../Images/close.png'
+import Shimmer from './Shimmer'
 
 const SideBar = () => {
     const dispatch = useDispatch()
@@ -19,6 +20,9 @@ const SideBar = () => {
 
     const handleClick = ()=>{
         dispatch(toggle())
+    }
+    if(!category){
+        <Shimmer />
     }
     useEffect(()=>{
         if(!category){

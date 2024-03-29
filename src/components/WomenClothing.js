@@ -3,6 +3,7 @@ import Card from './Card'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addWomen } from '../utils/appSlice'
+import Shimmer from './Shimmer'
 
 const WomenClothing = () => {
     const WomenClothing = useSelector(store => store.app.women)
@@ -12,11 +13,15 @@ const WomenClothing = () => {
         const json = await data?.json()
         dispatch(addWomen(json))
     }
+    
     useEffect(()=>{
         if(!WomenClothing){
         electronicSearch()
     }
     }, [])
+    if (!WomenClothing) {
+        return <Shimmer /> 
+      }
   return (
     <div className="mt-[90px] md:ml-[300px] ml-[14%] flex flex-wrap gap-5 overflow-y-hidden">
         { 
@@ -26,9 +31,10 @@ const WomenClothing = () => {
                 const price = eachProduct?.price;
                 const category = eachProduct?.category;
                 const rating = eachProduct?.rating?.rate;
+                const id = eachProduct?.id
 
                 return(
-                    <Link key={eachProduct.id} to={`/product/${eachProduct.id}`}><Card key={eachProduct.id} image={image} title={title} price={price} category={category} rating={rating}/></Link>
+                    <Link key={eachProduct.id} to={`/product/${eachProduct.id}`}><Card id={id} key={eachProduct.id} image={image} title={title} price={price} category={category} rating={rating}/></Link>
                 )
             })
         }

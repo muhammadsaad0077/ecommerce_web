@@ -9,7 +9,7 @@ const CartPage = () => {
 
 
   return (
-    <div className='ml-[300px] flex flex-wrap gap-5 mt-24'>
+    <div className='md:ml-[300px] ml-[14%] flex flex-wrap gap-5 mt-24'>
       {cartItems.map(item => (
         <div key={item.id}>
           <Card {...item} />

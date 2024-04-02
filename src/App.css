@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.App {
+    transition: all 0.5s ease; /* Smooth transition for size change */
+    transform: scale(0.9); /* Initially smaller size */
+    opacity: 0; /* Initially invisible */
+  }
+  
+  .App.loaded {
+    transform: scale(1); /* Full size when loaded */
+    opacity: 1; /* Fully visible */
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.5s ease-in-out;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  

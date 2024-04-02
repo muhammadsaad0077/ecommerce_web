@@ -35,7 +35,7 @@ const SideBar = () => {
     <>
     
    <img onClick={handleClick} className={`w-5 h-6 ml-2 -mt-[41px] md:hidden cursor-pointer transition-transform transform ${isSideBarOpen ? 'rotate-180' : ''}`} alt='icon' src={isSideBarOpen ? close : bars}></img>
-    <div className="ml-0 mt-[90px] p-4 w-[15%] h-[100%]  bg-yellow-800 rounded-lg shadow-lg fixed hidden md:inline-block">
+    <div className="ml-0 mt-[90px] p-4 w-[15%] h-[590px] bg-yellow-800 rounded-lg shadow-lg fixed hidden md:inline-block">
     <ul className="divide-y divide-yellow-700">
        <Link to={"/"}><li className='ml-3 mt-10 p-4 text-white cursor-pointer hover:text-yellow-200 transition duration-300' onClick={handleClick}>All</li></Link>
         {category?.map((eachCategory, index) => (
@@ -49,7 +49,7 @@ const SideBar = () => {
     </div>
     
     {isSideBarOpen && (
-                <div className="ml-0 mt-[90px] p-4 w-[87%] bg-yellow-800 rounded-lg shadow-lg fixed md:hidden" onClick={handleClick}>
+                <div className="ml-0 mt-[90px] p-4 w-[90%] h-[85%] bg-yellow-800 rounded-lg shadow-lg fixed md:hidden" onClick={handleClick}>
                     <ul className="divide-y divide-yellow-700">
                         <Link to={"/"}><li className='ml-3 mt-10 p-4 text-white cursor-pointer hover:text-yellow-200 transition duration-300'>All</li></Link>
                         {category?.map((eachCategory, index) => (

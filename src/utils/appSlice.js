@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { act } from "react-dom/test-utils";
 
 const appSlice = createSlice({
     name: 'app',
@@ -11,7 +12,8 @@ const appSlice = createSlice({
         electronics: null,
         women: null,
         product: null,
-        toggleButton: false
+        toggleButton: false,
+        
         
     },
     reducers: {
@@ -41,7 +43,8 @@ const appSlice = createSlice({
         },
         toggle: (state) => {
             state.toggleButton = !state.toggleButton
-        }
+        },
+        
         
     }
 })

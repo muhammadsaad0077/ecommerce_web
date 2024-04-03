@@ -13,6 +13,8 @@ import Product from './components/Product';
 import CartPage from './components/Cart';
 import { useEffect, useState } from 'react';
 import HomePage from './components/HomePage'
+import Checkout from './components/Checkout';
+import Footer from './components/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false)
@@ -29,27 +31,27 @@ function App() {
           <SideBar />
           {/* Render Home component for specified routes */}
           <Routes>
-          <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/electronics" element={<Electronics />} />
             <Route path="/jewelery" element={<Jewelry />} />
             <Route path="/men's clothing" element={<MenClothing />} />
             <Route path="/women's clothing" element={<WomenClothing />} />
-            <Route path='/product/:id' element={<Product />}></Route>
+            <Route path='/product/:newId' element={<Product />}></Route>
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/checkout" element={<Checkout />} />
           </Routes>
           {/* Sidebar */}
           
           {/* Other routes */}
           <Routes>
             <Route path="/cart" element={<HomePage />} />
-            <Route path="/product/:id" element={<HomePage />} />
             <Route path="/women's clothing" element={<HomePage />} />
             <Route path="/men's clothing" element={<HomePage />} />
             <Route path="/jewelery" element={<HomePage />} />
             <Route path="/electronics" element={<HomePage />} />
           </Routes>
           
-          
+          <Footer />
         </div>
       </Router>
     </Provider>

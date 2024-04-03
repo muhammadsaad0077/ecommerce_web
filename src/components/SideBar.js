@@ -22,7 +22,7 @@ const SideBar = () => {
         dispatch(toggle())
     }
     if(!category){
-        <Shimmer />
+     <Shimmer />
     }
     useEffect(()=>{
         if(!category){
